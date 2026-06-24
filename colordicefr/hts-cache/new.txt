@@ -1,0 +1,5 @@
+date	size'/'remotesize	flags(request:Update,Range state:File response:Modified,Chunked,gZipped)	statuscode	status ('servermsg')	MIME	Etag|Date	URL	localfile	(from URL)
+20:52:13	5254/5254	---M-Z	404	error ('Not%20Found')	text/html	etag:W/%2269a01f78-24a3%22	https://colordice.fr/robots.txt		(from )
+20:52:13	171236/171236	---M-Z	200	added ('OK')	text/html	etag:W/%226a2f3325-29ce4%22	https://colordice.fr/	C:/My%20Web%20Sites/colordicefr/colordice.fr/index.html	(from )
+20:52:14	5669480/5669480	---M--	200	added ('OK')	image/png	etag:%226a2f3325-568268%22	https://colordice.fr/colordice.png	C:/My%20Web%20Sites/colordicefr/colordice.fr/colordice.png	(from https://colordice.fr/)
+20:52:14	193853/193853	---M--	200	added ('OK')	text/javascript	etag:1496432529376900971	https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5655926023636540	C:/My%20Web%20Sites/colordicefr/pagead2.googlesyndication.com/pagead/js/f021e.txt	(from https://colordice.fr/)

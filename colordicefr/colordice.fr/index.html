@@ -1,0 +1,1449 @@
+<!DOCTYPE html>
+<html lang="en" id="htmlRoot">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Color Dice – Roll Color Dice Online Free | #1 Color Dice Roller</title>
+        <meta name="description" content="Roll color dice online for free! The best random color dice roller with Red, Orange, Yellow, Green, Blue and Purple. Roll 1 to 100 color dice instantly. No download, no login. Free virtual color dice simulator for board games, online games and more. Roll color dice now!">
+        <meta name="keywords" content="color dice, dice color, roll color dice, color dice roller, random color dice">
+        <link rel="canonical" href="https://rollcolordice.com/">
+        <meta property="og:title" content="Color Dice – Roll Color Dice Online Free | #1 Color Dice Roller">
+        <meta property="og:description" content="Roll 1 to 100 color dice online for free! Random colors: Red, Orange, Yellow, Green, Blue, Purple.">
+        <meta property="og:type" content="website">
+        <meta name="robots" content="index, follow">
+        <meta name="author" content="Retox &amp; Geoman">
+        <meta name="theme-color" content="#ffd700">
+        <link rel="icon" type="image/png" href="colordice.png">
+        <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&amp;family=Rajdhani:wght@500;700&amp;display=swap" rel="stylesheet">
+        <style>
+            *,*::before,*::after {
+                box-sizing: border-box
+            }
+
+            body {
+                font-family: 'Rajdhani',sans-serif;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin: 0;
+                padding-top: 50px;
+                min-height: 100vh;
+                overflow-x: hidden;
+                background-size: 400% 400%;
+                animation: gradientBG 15s ease infinite
+            }
+
+            body.theme-default {
+                background-image: linear-gradient(-45deg,#5ab2ff,#2980b9,#6dd5ed,#2193b0)
+            }
+
+            body.theme-green {
+                background-image: linear-gradient(-45deg,#11998e,#38ef7d,#00b09b,#96c93d)
+            }
+
+            body.theme-red {
+                background-image: linear-gradient(-45deg,#cb2d3e,#ef473a,#ff0844,#ffb199)
+            }
+
+            body.theme-bw {
+                background-image: linear-gradient(-45deg,#232526,#414345,#000000,#434343)
+            }
+
+            body.theme-bronze {
+                background-image: linear-gradient(-45deg,#cd7f32,#8b5a2b,#a0522d,#cd853f)
+            }
+
+            body.theme-silver {
+                background-image: linear-gradient(-45deg,#bdc3c7,#2c3e50,#8e9eab,#eef2f3)
+            }
+
+            body.theme-gold {
+                background-image: linear-gradient(-45deg,#ffd700,#daa520,#b8860b,#ffdf00)
+            }
+
+            @keyframes gradientBG {
+                0% { background-position: 0% 50% }
+                50% { background-position: 100% 50% }
+                100% { background-position: 0% 50% }
+            }
+
+            h1 {
+                color: white;
+                font-size: 3em;
+                margin-bottom: 10px;
+                font-family: 'Comic Sans MS',sans-serif;
+                letter-spacing: 2px;
+                text-shadow: 2px 2px 4px rgba(0,0,0,0.4),0 0 20px rgba(255,255,255,0.3);
+                animation: titleFloat 3s ease-in-out infinite;
+                text-align: center;
+                padding: 0 20px
+            }
+
+            @keyframes titleFloat {
+                0%,100% { transform: translateY(0) }
+                50% { transform: translateY(-5px) }
+            }
+
+            .header-right {
+                position: absolute;
+                top: 20px;
+                right: 25px;
+                display: flex;
+                align-items: center;
+                gap: 15px;
+                z-index: 200
+            }
+
+            .server-text {
+                color: white;
+                font-weight: 800;
+                font-size: 1.2em;
+                text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+                display: flex;
+                align-items: baseline;
+                gap: 6px
+            }
+
+            .server-text small {
+                font-size: 0.6em;
+                font-weight: 500;
+                opacity: 0.9
+            }
+
+            .online-counter {
+                color: white;
+                font-weight: 700;
+                font-size: 0.85em;
+                font-family: 'Orbitron',monospace;
+                background: rgba(0,0,0,0.5);
+                padding: 6px 14px;
+                border-radius: 20px;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                border: 1px solid rgba(255,255,255,0.2);
+                box-shadow: 0 4px 10px rgba(0,0,0,0.3)
+            }
+
+            .pulse-dot {
+                width: 8px;
+                height: 8px;
+                background-color: #2ecc71;
+                border-radius: 50%;
+                box-shadow: 0 0 8px #2ecc71;
+                animation: pulseGreen 1.5s infinite
+            }
+
+            @keyframes pulseGreen {
+                0% { transform: scale(0.9); box-shadow: 0 0 0 0 rgba(46,204,113,0.7) }
+                50% { transform: scale(1.2); box-shadow: 0 0 0 6px rgba(46,204,113,0) }
+                100% { transform: scale(0.9); box-shadow: 0 0 0 0 rgba(46,204,113,0) }
+            }
+
+            .discord-btn {
+                background-color: #5865F2;
+                width: 45px;
+                height: 45px;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+                transition: transform 0.2s,box-shadow 0.2s;
+                text-decoration: none
+            }
+
+            .discord-btn:hover {
+                transform: scale(1.1) rotate(5deg);
+                box-shadow: 0 6px 14px rgba(0,0,0,0.4)
+            }
+
+            .discord-btn svg {
+                width: 26px;
+                height: 26px;
+                fill: white
+            }
+
+            .volume-control {
+                position: absolute;
+                top: 20px;
+                left: 25px;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                z-index: 200;
+                background: rgba(0,0,0,0.5);
+                padding: 8px 14px;
+                border-radius: 20px;
+                border: 1px solid rgba(255,255,255,0.2);
+                box-shadow: 0 4px 10px rgba(0,0,0,0.3)
+            }
+
+            .vol-btn {
+                background: none;
+                border: none;
+                font-size: 1.3em;
+                cursor: pointer;
+                padding: 0;
+                line-height: 1;
+                transition: transform 0.15s ease
+            }
+
+            .vol-btn:hover { transform: scale(1.2) }
+
+            #volSlider {
+                width: 90px;
+                height: 5px;
+                accent-color: #ffd700;
+                cursor: pointer
+            }
+
+            @media(max-width: 600px) {
+                .volume-control {
+                    top: 12px;
+                    left: 12px;
+                    padding: 6px 10px;
+                    gap: 7px
+                }
+                #volSlider { width: 60px }
+            }
+
+            .watermark {
+                position: fixed;
+                bottom: 20px;
+                right: 25px;
+                color: rgba(255,255,255,0.95);
+                font-family: 'Orbitron',monospace;
+                font-size: 1.15em;
+                font-weight: 700;
+                letter-spacing: 2px;
+                text-transform: uppercase;
+                pointer-events: none;
+                z-index: 200;
+                animation: glowPulse 2.5s ease-in-out infinite
+            }
+
+            @keyframes glowPulse {
+                0%,100% { text-shadow: 0 0 6px rgba(255,255,255,0.9),0 0 14px rgba(255,255,255,0.7),0 0 28px rgba(255,255,255,0.5),0 0 50px rgba(200,220,255,0.4); opacity: 1 }
+                50% { text-shadow: 0 0 10px rgba(255,255,255,1),0 0 22px rgba(255,255,255,0.9),0 0 45px rgba(255,255,255,0.7),0 0 80px rgba(200,220,255,0.6); opacity: 0.85 }
+            }
+
+            .controls-top {
+                display: flex;
+                gap: 14px;
+                margin-bottom: 30px;
+                padding: 14px 22px;
+                border-radius: 16px;
+                background: rgba(0,0,0,0.25);
+                backdrop-filter: blur(12px);
+                -webkit-backdrop-filter: blur(12px);
+                border: 1px solid rgba(255,255,255,0.25);
+                box-shadow: 0 8px 32px rgba(0,0,0,0.2),inset 0 1px 0 rgba(255,255,255,0.15)
+            }
+
+            .select-group {
+                display: flex;
+                flex-direction: column;
+                gap: 5px
+            }
+
+            .select-label {
+                font-family: 'Orbitron',monospace;
+                font-size: 0.58em;
+                font-weight: 700;
+                color: rgba(255,255,255,0.6);
+                letter-spacing: 2px;
+                text-transform: uppercase;
+                padding-left: 4px
+            }
+
+            .select-wrapper {
+                position: relative;
+                display: inline-block
+            }
+
+            .select-wrapper::after {
+                content: '▾';
+                position: absolute;
+                right: 13px;
+                top: 50%;
+                transform: translateY(-50%);
+                color: rgba(255,255,255,0.7);
+                font-size: 1em;
+                pointer-events: none;
+                transition: transform 0.2s ease
+            }
+
+            .select-wrapper:hover::after {
+                transform: translateY(-50%) translateY(2px)
+            }
+
+            select {
+                appearance: none;
+                -webkit-appearance: none;
+                padding: 11px 40px 11px 16px;
+                font-family: 'Orbitron',monospace;
+                font-size: 0.72em;
+                font-weight: 700;
+                letter-spacing: 1px;
+                border-radius: 10px;
+                border: 2px solid rgba(255,255,255,0.45);
+                background: rgba(255,255,255,0.12);
+                color: #fff;
+                cursor: pointer;
+                outline: none;
+                text-transform: uppercase;
+                transition: all 0.2s ease;
+                min-width: 200px;
+                box-shadow: 0 4px 14px rgba(0,0,0,0.2),inset 0 1px 0 rgba(255,255,255,0.18)
+            }
+
+            select:hover {
+                background: rgba(255,255,255,0.22);
+                border-color: rgba(255,255,255,0.75);
+                box-shadow: 0 6px 20px rgba(0,0,0,0.25),0 0 12px rgba(255,255,255,0.15),inset 0 1px 0 rgba(255,255,255,0.25);
+                transform: translateY(-1px)
+            }
+
+            select:focus {
+                border-color: #ffd700;
+                box-shadow: 0 0 0 3px rgba(255,215,0,0.3),0 6px 20px rgba(0,0,0,0.25),inset 0 1px 0 rgba(255,255,255,0.2)
+            }
+
+            select option {
+                background-color: #1a1a2e;
+                color: white;
+                font-family: 'Rajdhani',sans-serif;
+                font-weight: 600
+            }
+
+            select option:disabled { color: #888 }
+
+            .dice-container {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-content: center;
+                gap: 15px;
+                margin: 20px 0;
+                width: 90%;
+                max-width: 900px;
+                min-height: 150px;
+                position: relative
+            }
+
+            .die-wrapper { perspective: 500px }
+
+            .die {
+                width: 100px;
+                height: 100px;
+                background: #ffffff;
+                border-radius: 18px;
+                border: 4px solid rgba(255,255,255,0.9);
+                box-shadow: 0 8px 20px rgba(0,0,0,0.35),inset 0 2px 0 rgba(255,255,255,0.6),inset 0 -2px 0 rgba(0,0,0,0.15);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                transition: transform 0.4s cubic-bezier(0.175,0.885,0.32,1.275),background 0.3s ease,box-shadow 0.3s ease;
+                position: relative;
+                transform-style: preserve-3d
+            }
+
+            .die::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 55%;
+                height: 45%;
+                border-radius: 14px 0 50% 0;
+                background: linear-gradient(135deg,rgba(255,255,255,0.45) 0%,transparent 100%);
+                pointer-events: none
+            }
+
+            .die.medium { width: 60px; height: 60px; border-width: 3px; border-radius: 12px }
+            .die.small { width: 40px; height: 40px; border-width: 2px; border-radius: 9px }
+
+            .die .dot {
+                width: 26%;
+                height: 26%;
+                background: rgba(255,255,255,0.92);
+                border-radius: 50%;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.5),0 0 0 2px rgba(0,0,0,0.08);
+                position: relative;
+                z-index: 2
+            }
+
+            @keyframes shake {
+                0% { transform: translate(0,0) rotate(0deg) }
+                10% { transform: translate(-4px,4px) rotate(-5deg) }
+                20% { transform: translate(4px,-4px) rotate(5deg) }
+                30% { transform: translate(-4px,-4px) rotate(-3deg) }
+                40% { transform: translate(4px,4px) rotate(3deg) }
+                50% { transform: translate(-3px,2px) rotate(-6deg) }
+                60% { transform: translate(3px,-2px) rotate(6deg) }
+                70% { transform: translate(-2px,3px) rotate(-4deg) }
+                80% { transform: translate(2px,-3px) rotate(4deg) }
+                90% { transform: translate(-1px,1px) rotate(-2deg) }
+                100% { transform: translate(1px,-1px) rotate(2deg) }
+            }
+
+            @keyframes flipReveal {
+                0% { transform: rotateY(0deg) scale(1) }
+                40% { transform: rotateY(90deg) scale(0.85) }
+                60% { transform: rotateY(-30deg) scale(1.15) }
+                80% { transform: rotateY(10deg) scale(1.05) }
+                100% { transform: rotateY(0deg) scale(1) }
+            }
+
+            @keyframes popBounce {
+                0% { transform: scale(1) }
+                30% { transform: scale(1.35) }
+                55% { transform: scale(0.9) }
+                75% { transform: scale(1.12) }
+                100% { transform: scale(1) }
+            }
+
+            .die.suspense {
+                animation: shake 0.1s infinite linear;
+                background: #ffffff!important;
+                box-shadow: 0 8px 30px rgba(0,0,0,0.4),0 0 20px rgba(255,255,255,0.3),inset 0 2px 0 rgba(255,255,255,0.6)!important
+            }
+
+            .die.flipping { animation: flipReveal 0.5s cubic-bezier(0.25,0.46,0.45,0.94) forwards }
+            .die.popping { animation: popBounce 0.4s cubic-bezier(0.36,0.07,0.19,0.97) forwards }
+
+            .die.colored {
+                box-shadow: 0 10px 30px rgba(0,0,0,0.4),0 0 30px var(--die-glow,rgba(255,255,255,0.5)),0 0 60px var(--die-glow,rgba(255,255,255,0.2)),inset 0 2px 0 rgba(255,255,255,0.35),inset 0 -2px 0 rgba(0,0,0,0.2)
+            }
+
+            button#rollBtn {
+                position: relative;
+                background: linear-gradient(135deg,#ffd700,#ffaa00);
+                color: white;
+                border: 3px solid rgba(255,255,255,0.9);
+                border-radius: 14px;
+                padding: 16px 55px;
+                font-size: 2em;
+                font-weight: 900;
+                font-family: 'Rajdhani',sans-serif;
+                cursor: pointer;
+                overflow: hidden;
+                transition: all 0.15s ease;
+                z-index: 10;
+                margin-bottom: 20px;
+                margin-top: 10px;
+                text-shadow: 0 2px 4px rgba(180,120,0,0.6);
+                box-shadow: 0 6px 20px rgba(0,0,0,0.3),0 0 0 0 rgba(255,215,0,0.4),inset 0 2px 0 rgba(255,255,255,0.3);
+                animation: btnPulse 2s ease-in-out infinite
+            }
+
+            @keyframes btnPulse {
+                0%,100% { box-shadow: 0 6px 20px rgba(0,0,0,0.3),0 0 0 0 rgba(255,215,0,0.5),inset 0 2px 0 rgba(255,255,255,0.3) }
+                50% { box-shadow: 0 6px 20px rgba(0,0,0,0.3),0 0 0 12px rgba(255,215,0,0),inset 0 2px 0 rgba(255,255,255,0.3) }
+            }
+
+            button#rollBtn::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 60%;
+                height: 100%;
+                background: linear-gradient(90deg,transparent,rgba(255,255,255,0.35),transparent);
+                animation: btnShine 3s ease-in-out infinite
+            }
+
+            @keyframes btnShine {
+                0% { left: -100% }
+                40% { left: 150% }
+                100% { left: 150% }
+            }
+
+            button#rollBtn:hover {
+                transform: translateY(-3px) scale(1.03);
+                box-shadow: 0 10px 30px rgba(0,0,0,0.35),0 0 25px rgba(255,215,0,0.4),inset 0 2px 0 rgba(255,255,255,0.3);
+                animation: none
+            }
+
+            button#rollBtn:active:not(:disabled) {
+                transform: translateY(3px) scale(0.96);
+                box-shadow: 0 2px 8px rgba(0,0,0,0.2),inset 0 2px 0 rgba(255,255,255,0.2)
+            }
+
+            button#rollBtn:disabled {
+                background: linear-gradient(135deg,#bdc3c7,#95a5a6);
+                text-shadow: none;
+                border-color: rgba(255,255,255,0.4);
+                cursor: not-allowed;
+                animation: none;
+                transform: scale(0.96);
+                box-shadow: 0 2px 8px rgba(0,0,0,0.2)
+            }
+
+            button#rollBtn:disabled::before { display: none }
+
+            #combo-display {
+                position: absolute;
+                top: -70px;
+                left: 50%;
+                transform: translateX(-50%);
+                font-size: 4em;
+                color: #ff2a2a;
+                font-weight: 900;
+                font-family: 'Comic Sans MS',sans-serif;
+                text-transform: uppercase;
+                text-shadow: 3px 3px 0 #fff,-2px -2px 0 #fff,2px -2px 0 #fff,-2px 2px 0 #fff;
+                opacity: 0;
+                pointer-events: none;
+                z-index: 100;
+                white-space: nowrap
+            }
+
+            @keyframes popCombo {
+                0% { opacity: 0; transform: translateX(-50%) scale(0.2) rotate(-10deg) }
+                50% { opacity: 1; transform: translateX(-50%) scale(1.3) rotate(4deg) }
+                75% { transform: translateX(-50%) scale(0.95) rotate(-1deg) }
+                100% { opacity: 1; transform: translateX(-50%) scale(1) rotate(0deg) }
+            }
+
+            .show-combo { animation: popCombo 0.4s cubic-bezier(0.36,0.07,0.19,0.97) forwards }
+
+            .colors-info {
+                background: rgba(255,255,255,0.25);
+                backdrop-filter: blur(8px);
+                -webkit-backdrop-filter: blur(8px);
+                padding: 10px 22px;
+                border-radius: 10px;
+                border: 1px solid rgba(255,255,255,0.2);
+                color: white;
+                font-weight: 700;
+                font-size: 1.1em;
+                text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+                margin-bottom: 20px;
+                z-index: 10
+            }
+
+            .history-panel {
+                width: 90%;
+                max-width: 900px;
+                margin: 0 auto 25px;
+                z-index: 10;
+                border: 1px solid rgba(255,255,255,0.2);
+                border-radius: 12px;
+                overflow: hidden;
+                background: rgba(0,0,0,0.3);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                box-shadow: 0 8px 24px rgba(0,0,0,0.2)
+            }
+
+            .history-header {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 12px 20px;
+                cursor: pointer;
+                color: #fff;
+                font-family: 'Orbitron',monospace;
+                font-weight: 700;
+                font-size: 0.72em;
+                letter-spacing: 1.5px;
+                text-transform: uppercase;
+                user-select: none;
+                -webkit-user-select: none;
+                transition: background 0.2s
+            }
+
+            .history-header:hover { background: rgba(255,255,255,0.06) }
+
+            .history-header .hist-left {
+                display: flex;
+                align-items: center;
+                gap: 8px
+            }
+
+            .history-header .hist-count {
+                font-size: 0.85em;
+                color: rgba(255,215,0,0.85);
+                font-weight: 700
+            }
+
+            .history-header .chev {
+                font-size: 1.2em;
+                color: #ffd700;
+                transition: transform 0.3s ease
+            }
+
+            .history-panel.open .history-header .chev { transform: rotate(180deg) }
+
+            .history-body {
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.4s ease
+            }
+
+            .history-panel.open .history-body { max-height: 340px }
+
+            .history-inner { padding: 4px 20px 18px }
+
+            .hist-empty {
+                color: rgba(255,255,255,0.6);
+                font-weight: 600;
+                font-size: 1.05em;
+                text-align: center;
+                padding: 12px 0
+            }
+
+            .hist-meta {
+                font-family: 'Orbitron',monospace;
+                font-size: 0.6em;
+                font-weight: 700;
+                letter-spacing: 1px;
+                color: rgba(255,255,255,0.45);
+                text-transform: uppercase;
+                margin-bottom: 12px
+            }
+
+            .hist-summary {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 7px;
+                margin-bottom: 14px
+            }
+
+            .hist-swatch {
+                display: inline-flex;
+                align-items: center;
+                gap: 7px;
+                background: rgba(255,255,255,0.08);
+                border: 1px solid rgba(255,255,255,0.12);
+                border-radius: 9px;
+                padding: 5px 12px;
+                color: #fff;
+                font-weight: 700;
+                font-size: 0.95em
+            }
+
+            .hist-dot {
+                width: 16px;
+                height: 16px;
+                border-radius: 50%;
+                border: 1px solid rgba(255,255,255,0.5)
+            }
+
+            .hist-seq {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 7px;
+                align-items: center
+            }
+
+            .hist-seqdot {
+                width: 22px;
+                height: 22px;
+                border-radius: 6px;
+                border: 1px solid rgba(255,255,255,0.5)
+            }
+
+            #particles {
+                position: fixed;
+                inset: 0;
+                pointer-events: none;
+                z-index: 50
+            }
+
+            .join-discord {
+                position: fixed;
+                bottom: 20px;
+                left: 25px;
+                z-index: 200;
+                pointer-events: none;
+                font-family: 'Orbitron',monospace;
+                font-size: 0.62em;
+                font-weight: 700;
+                letter-spacing: 1.5px;
+                text-transform: uppercase;
+                color: rgba(255,255,255,0.9);
+                animation: joinGlow 2.5s ease-in-out infinite
+            }
+
+            @keyframes joinGlow {
+                0%,100% { text-shadow: 0 0 5px rgba(88,101,242,0.9),0 0 12px rgba(88,101,242,0.7),0 0 24px rgba(88,101,242,0.5); opacity: 0.85 }
+                50% { text-shadow: 0 0 8px rgba(88,101,242,1),0 0 20px rgba(88,101,242,0.9),0 0 40px rgba(88,101,242,0.7); opacity: 1 }
+            }
+
+            .ad-space {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 50
+            }
+
+            .ad-side {
+                position: fixed;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 160px;
+                height: 600px
+            }
+
+            .ad-left { left: 10px }
+            .ad-right { right: 10px }
+
+            .ad-bottom {
+                width: 728px;
+                max-width: 90%;
+                height: 90px;
+                margin-top: 10px;
+                margin-bottom: 30px
+            }
+
+            @media(max-width: 1200px) {
+                .ad-side { display: none }
+            }
+
+            .info-section {
+                width: 90%;
+                max-width: 860px;
+                margin: 40px auto 0;
+                display: flex;
+                flex-direction: column;
+                gap: 30px;
+                padding-bottom: 80px
+            }
+
+            .info-card {
+                background: rgba(0,0,0,0.35);
+                backdrop-filter: blur(12px);
+                -webkit-backdrop-filter: blur(12px);
+                border: 1px solid rgba(255,255,255,0.2);
+                border-radius: 16px;
+                padding: 28px 32px;
+                color: white;
+                box-shadow: 0 8px 32px rgba(0,0,0,0.25)
+            }
+
+            .info-card h2 {
+                font-family: 'Orbitron',monospace;
+                font-size: 1.1em;
+                font-weight: 700;
+                letter-spacing: 2px;
+                text-transform: uppercase;
+                color: #ffd700;
+                margin: 0 0 14px 0;
+                text-shadow: 0 0 14px rgba(255,215,0,0.4)
+            }
+
+            .info-card p {
+                font-family: 'Rajdhani',sans-serif;
+                font-size: 1.05em;
+                font-weight: 500;
+                line-height: 1.65;
+                color: rgba(255,255,255,0.88);
+                margin: 0
+            }
+
+            .blog-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill,minmax(240px,1fr));
+                gap: 16px;
+                margin-top: 4px
+            }
+
+            .blog-post {
+                background: rgba(255,255,255,0.07);
+                border: 1px solid rgba(255,255,255,0.15);
+                border-radius: 12px;
+                padding: 18px 20px;
+                transition: background 0.2s,transform 0.2s
+            }
+
+            .blog-post:hover { background: rgba(255,255,255,0.13); transform: translateY(-2px) }
+
+            .blog-post h3 {
+                font-family: 'Orbitron',monospace;
+                font-size: 0.68em;
+                font-weight: 700;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+                color: #ffd700;
+                margin: 0 0 8px 0
+            }
+
+            .blog-post p {
+                font-family: 'Rajdhani',sans-serif;
+                font-size: 0.95em;
+                font-weight: 500;
+                line-height: 1.55;
+                color: rgba(255,255,255,0.78);
+                margin: 0 0 12px 0
+            }
+
+            .site-footer {
+                width: 90%;
+                max-width: 860px;
+                margin: 0 auto 20px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                flex-wrap: wrap;
+                gap: 12px;
+                padding: 18px 24px;
+                background: rgba(0,0,0,0.3);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                border: 1px solid rgba(255,255,255,0.15);
+                border-radius: 12px 12px 0 0;
+                font-family: 'Rajdhani',sans-serif;
+                color: rgba(255,255,255,0.7);
+                font-size: 0.92em;
+                font-weight: 600
+            }
+
+            .site-footer a {
+                color: #ffd700;
+                text-decoration: none;
+                font-weight: 700;
+                transition: opacity 0.2s
+            }
+
+            .site-footer a:hover { opacity: 0.8 }
+
+            .lang-switcher {
+                width: 90%;
+                max-width: 860px;
+                margin: 0 auto 100px;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 6px;
+                justify-content: center;
+                padding: 16px 24px;
+                background: rgba(0,0,0,0.3);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                border: 1px solid rgba(255,255,255,0.15);
+                border-radius: 0 0 12px 12px;
+                border-top: 1px solid rgba(255,255,255,0.08)
+            }
+
+            .lang-switcher-label {
+                width: 100%;
+                text-align: center;
+                font-family: 'Orbitron',monospace;
+                font-size: 0.55em;
+                font-weight: 700;
+                letter-spacing: 2px;
+                text-transform: uppercase;
+                color: rgba(255,255,255,0.4);
+                margin-bottom: 6px
+            }
+
+            .lang-btn {
+                background: rgba(0,0,0,0.45);
+                border: 1px solid rgba(255,255,255,0.25);
+                color: rgba(255,255,255,0.75);
+                font-family: 'Orbitron',monospace;
+                font-size: 0.52em;
+                font-weight: 700;
+                letter-spacing: 0.5px;
+                padding: 5px 10px;
+                border-radius: 6px;
+                cursor: pointer;
+                transition: all 0.15s ease;
+                backdrop-filter: blur(8px)
+            }
+
+            .lang-btn:hover { background: rgba(255,215,0,0.25); border-color: #ffd700; color: #ffd700; transform: translateY(-1px) }
+
+            .lang-btn.active { background: rgba(255,215,0,0.3); border-color: #ffd700; color: #ffd700; box-shadow: 0 0 8px rgba(255,215,0,0.4) }
+
+            .api-card {
+                background: rgba(0,0,0,0.35);
+                backdrop-filter: blur(12px);
+                -webkit-backdrop-filter: blur(12px);
+                border: 1px solid rgba(46,204,113,0.3);
+                border-radius: 16px;
+                padding: 24px 32px;
+                color: white;
+                box-shadow: 0 8px 32px rgba(0,0,0,0.25),0 0 20px rgba(46,204,113,0.08)
+            }
+
+            .api-card h2 {
+                font-family: 'Orbitron',monospace;
+                font-size: 1.1em;
+                font-weight: 700;
+                letter-spacing: 2px;
+                text-transform: uppercase;
+                color: #2ecc71;
+                margin: 0 0 14px 0;
+                text-shadow: 0 0 14px rgba(46,204,113,0.5);
+                display: flex;
+                align-items: center;
+                gap: 10px
+            }
+
+            .api-card h2 .live-dot {
+                display: inline-block;
+                width: 10px;
+                height: 10px;
+                background: #2ecc71;
+                border-radius: 50%;
+                box-shadow: 0 0 8px #2ecc71;
+                animation: pulseGreen 1.5s infinite;
+                flex-shrink: 0
+            }
+
+            .api-card p {
+                font-family: 'Rajdhani',sans-serif;
+                font-size: 1.05em;
+                font-weight: 500;
+                line-height: 1.65;
+                color: rgba(255,255,255,0.88);
+                margin: 0 0 12px 0
+            }
+
+            .api-card p:last-child { margin: 0 }
+
+            .api-highlight {
+                display: inline-flex;
+                align-items: center;
+                gap: 6px;
+                background: rgba(46,204,113,0.15);
+                border: 1px solid rgba(46,204,113,0.35);
+                border-radius: 8px;
+                padding: 3px 10px;
+                font-family: 'Orbitron',monospace;
+                font-size: 0.75em;
+                font-weight: 700;
+                color: #2ecc71;
+                letter-spacing: 1px
+            }
+
+            .api-steps {
+                display: grid;
+                grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
+                gap: 12px;
+                margin-top: 16px
+            }
+
+            .api-step {
+                background: rgba(255,255,255,0.05);
+                border: 1px solid rgba(46,204,113,0.2);
+                border-radius: 10px;
+                padding: 14px 16px
+            }
+
+            .api-step .step-num {
+                font-family: 'Orbitron',monospace;
+                font-size: 0.6em;
+                font-weight: 900;
+                color: #2ecc71;
+                letter-spacing: 1px;
+                margin-bottom: 6px
+            }
+
+            .api-step p { font-size: 0.92em; margin: 0; color: rgba(255,255,255,0.75) }
+
+            @media(max-width: 768px) {
+                .lang-switcher { margin-bottom: 120px; padding: 12px 14px }
+                .lang-btn { font-size: 0.48em; padding: 4px 7px }
+            }
+        </style>
+    </head>
+    <body class="theme-bw">
+        <canvas id="particles"></canvas>
+        <div class="volume-control" id="volumeControl">
+            <button class="vol-btn" id="volIcon" onclick="toggleMute()" aria-label="Mute or unmute sound" title="Mute / Unmute">🔊</button>
+            <input type="range" id="volSlider" min="0" max="100" value="70" oninput="setVolume(this.value)" aria-label="Volume level" title="Volume">
+        </div>
+        <div class="header-right">
+            <div class="online-counter">
+                <span class="pulse-dot"></span>
+                <span id="online-count">1</span>
+                <span id="onlineText">online</span>
+            </div>
+            <div class="server-text">
+                GeoMan x SM <small>with retox</small>
+            </div>
+            <a href="https://discord.gg/GVkHyNvMUH" target="_blank" class="discord-btn">
+                <svg viewBox="0 0 127.14 96.36">
+                    <path d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.31,60,73.31,53s5-12.74,11.43-12.74S96.33,46,96.22,53,91.08,65.69,84.69,65.69Z"/>
+                </svg>
+            </a>
+        </div>
+        <h1 id="mainH1">COLOR DICE – ROLL COLOR DICE</h1>
+        <div class="controls-top">
+            <div class="select-group">
+                <span class="select-label" id="themeLabel">🎨 Theme</span>
+                <div class="select-wrapper">
+                    <select id="themeSelect" onchange="changeTheme()">
+                        <option value="default">DEFAULT</option>
+                        <option value="green">GREEN</option>
+                        <option value="red">RED</option>
+                        <option value="bw" selected>B &amp;W</option>
+                        <option value="bronze" id="opt-bronze" disabled>BRONZE 🔒</option>
+                        <option value="silver" id="opt-silver" disabled>SILVER 🔒</option>
+                        <option value="gold" id="opt-gold" disabled>GOLD 🔒</option>
+                    </select>
+                </div>
+            </div>
+            <div class="select-group">
+                <span class="select-label" id="diceLabel">🎲 Number of Dice</span>
+                <div class="select-wrapper">
+                    <select id="diceCountSelect" onchange="generateDice()"></select>
+                </div>
+            </div>
+        </div>
+        <div class="dice-container" id="diceContainer">
+            <div id="combo-display"></div>
+        </div>
+        <div style="color: white; font-size: 1.5em; font-weight: bold; text-align: center; margin-bottom: 15px; text-shadow: 2px 2px 4px rgba(0,0,0,0.6); z-index: 10; position: relative; display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 8px;">
+            Rejoins nous sur roblox :
+            <a href="https://www.roblox.com/games/123295982059683/Steal-a-Glory#!/game-instances" target="_blank" style="color: #ffd700; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; text-shadow: 0 0 10px rgba(255,215,0,0.5); transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                Steal a Glory !
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.5));">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M5.10515 2.15582L2.05267 18.9442L18.8411 21.9967L21.8936 5.2083L5.10515 2.15582ZM10.5186 10.3541L13.7224 10.9366L13.1399 14.1404L9.9361 13.558L10.5186 10.3541Z"/>
+                </svg>
+            </a>
+        </div>
+        <button id="rollBtn" onclick="startRollAnimation()">ROLL AGAIN !</button>
+        <div class="colors-info">
+            <span id="colorsIntroText">Possible colors are:</span>
+            <span style="color:#ff6666;font-weight:900;" id="colorRed">Red</span>,
+            <span style="color:#ffcc44;font-weight:900;" id="colorOrange">Orange</span>,
+            <span style="color:#ffff66;font-weight:900;" id="colorYellow">Yellow</span>,
+            <span style="color:#66ff99;font-weight:900;" id="colorGreen">Green</span>,
+            <span style="color:#66aaff;font-weight:900;" id="colorBlue">Blue</span>
+            <span id="colorAndWord">and</span>
+            <span style="color:#cc88ff;font-weight:900;" id="colorPurple">Purple</span>.
+        </div>
+        <div class="history-panel" id="historyPanel">
+            <div class="history-header" onclick="toggleHistory()">
+                <span class="hist-left">📜 <span id="historyTitle">Last Spin History</span> <span class="hist-count" id="historyCount"></span></span>
+                <span class="chev">▾</span>
+            </div>
+            <div class="history-body">
+                <div class="history-inner" id="historyContent"></div>
+            </div>
+        </div>
+        <div class="watermark">Created by Retox &amp;Geoman</div>
+
+        <script>
+            const COLORS = ['#ff0000', '#ffa500', '#ffff00', '#008000', '#0000ff', '#800080'];
+            const GLOW   = ['rgba(255,80,80,0.7)','rgba(255,180,40,0.7)','rgba(255,255,60,0.7)','rgba(40,200,80,0.7)','rgba(60,120,255,0.7)','rgba(180,60,255,0.7)'];
+
+            // ── KEYBIND EXCLUSION (silent) ───────────────────────────
+            // excludedIndices: Set of COLORS indices currently excluded
+            // Keys: r=0, o=1, y=2, g=3, b=4, p=5 | N = reset
+            const KEY_TO_INDEX = { r:0, o:1, y:2, g:3, b:4, p:5 };
+            let excludedIndices = new Set();
+
+            function getRandomColorIndex() {
+                const pool = COLORS.map((_,i)=>i).filter(i => !excludedIndices.has(i));
+                const source = pool.length > 0 ? pool : COLORS.map((_,i)=>i);
+                return source[Math.floor(Math.random() * source.length)];
+            }
+
+            document.addEventListener('keydown', function(e) {
+                const tag = document.activeElement ? document.activeElement.tagName : '';
+                if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+
+                const key = e.key.toLowerCase();
+
+                if (key === ' ') {
+                    e.preventDefault();
+                    if (!document.getElementById('rollBtn').disabled) startRollAnimation();
+                    return;
+                }
+
+                if (key === 'n') {
+                    excludedIndices.clear();
+                    return;
+                }
+
+                if (KEY_TO_INDEX.hasOwnProperty(key)) {
+                    const idx = KEY_TO_INDEX[key];
+                    if (excludedIndices.has(idx)) {
+                        excludedIndices.delete(idx);
+                    } else {
+                        // Don't allow excluding all 6
+                        if (excludedIndices.size < COLORS.length - 1) {
+                            excludedIndices.add(idx);
+                        }
+                    }
+                }
+            });
+            // ────────────────────────────────────────────────────────
+
+            let totalRolls = 0, comboCount = 0, spamTimeout, currentLang = 'en';
+            let lastSpin = [], spinNumber = 0;
+            const countSelect = document.getElementById('diceCountSelect');
+
+            // ── AUDIO ────────────────────────────────────────────────
+            let audioCtx = null, masterGain = null, lastPop = 0;
+            let volumeLevel = parseFloat(localStorage.getItem('colorDiceVolume'));
+            if (isNaN(volumeLevel)) volumeLevel = 0.7;
+            let isMuted = localStorage.getItem('colorDiceMuted') === '1';
+
+            function ensureAudio() {
+                if (!audioCtx) {
+                    const AC = window.AudioContext || window.webkitAudioContext;
+                    if (!AC) return;
+                    audioCtx = new AC();
+                    masterGain = audioCtx.createGain();
+                    masterGain.connect(audioCtx.destination);
+                    masterGain.gain.value = isMuted ? 0 : volumeLevel;
+                }
+                if (audioCtx.state === 'suspended') audioCtx.resume();
+            }
+            function updateVolUI() {
+                const icon = document.getElementById('volIcon');
+                if (icon) icon.textContent = (isMuted || volumeLevel === 0) ? '🔇' : (volumeLevel < 0.5 ? '🔉' : '🔊');
+                const slider = document.getElementById('volSlider');
+                if (slider) slider.value = Math.round(volumeLevel * 100);
+            }
+            function setVolume(v) {
+                volumeLevel = v / 100;
+                if (volumeLevel > 0) isMuted = false;
+                localStorage.setItem('colorDiceVolume', volumeLevel);
+                localStorage.setItem('colorDiceMuted', isMuted ? '1' : '0');
+                ensureAudio();
+                if (masterGain) masterGain.gain.value = isMuted ? 0 : volumeLevel;
+                updateVolUI();
+            }
+            function toggleMute() {
+                isMuted = !isMuted;
+                localStorage.setItem('colorDiceMuted', isMuted ? '1' : '0');
+                ensureAudio();
+                if (masterGain) masterGain.gain.value = isMuted ? 0 : volumeLevel;
+                updateVolUI();
+            }
+            function playPopSound() {
+                ensureAudio();
+                if (!audioCtx) return;
+                const now = performance.now();
+                if (now - lastPop < 45) return;
+                lastPop = now;
+                const t = audioCtx.currentTime;
+                const osc = audioCtx.createOscillator();
+                osc.type = 'triangle';
+                const base = 450 + Math.random() * 450;
+                osc.frequency.setValueAtTime(base, t);
+                osc.frequency.exponentialRampToValueAtTime(base * 2.2, t + 0.12);
+                const g = audioCtx.createGain();
+                g.gain.setValueAtTime(0.3, t);
+                g.gain.exponentialRampToValueAtTime(0.001, t + 0.25);
+                osc.connect(g);
+                g.connect(masterGain);
+                osc.start(t);
+                osc.stop(t + 0.3);
+            }
+
+            function buildDiceOptions() {
+                const T = TRANSLATIONS[currentLang] || TRANSLATIONS['en'];
+                const cur = countSelect.value || '3';
+                countSelect.innerHTML = '';
+                for (let i = 1; i <= 50; i++) {
+                    const opt = document.createElement('option');
+                    opt.value = i;
+                    opt.textContent = i + ' ' + (i === 1 ? T.die : T.dice);
+                    if (i == cur) opt.selected = true;
+                    countSelect.appendChild(opt);
+                }
+            }
+            function generateDice() {
+                const container = document.getElementById('diceContainer');
+                const comboEl = document.getElementById('combo-display');
+                container.innerHTML = '';
+                container.appendChild(comboEl);
+                const count = parseInt(countSelect.value);
+                let sz = count > 25 ? 'small' : count > 9 ? 'medium' : '';
+                for (let i = 0; i < count; i++) {
+                    const w = document.createElement('div');
+                    w.className = 'die-wrapper';
+                    const d = document.createElement('div');
+                    d.className = 'die ' + sz;
+                    d.innerHTML = '<div class="dot"></div>';
+                    w.appendChild(d);
+                    container.appendChild(w);
+                }
+            }
+            function changeTheme() {
+                document.body.className = 'theme-' + document.getElementById('themeSelect').value;
+            }
+            function toggleHistory() {
+                document.getElementById('historyPanel').classList.toggle('open');
+            }
+            function renderHistory() {
+                const T = TRANSLATIONS[currentLang] || TRANSLATIONS['en'];
+                const el = document.getElementById('historyContent');
+                if (!el) return;
+                const names = [T.cRed, T.cOrange, T.cYellow, T.cGreen, T.cBlue, T.cPurple];
+                const cntEl = document.getElementById('historyCount');
+                if (!lastSpin || !lastSpin.length) {
+                    el.innerHTML = '<div class="hist-empty">' + T.historyEmpty + '</div>';
+                    if (cntEl) cntEl.textContent = '';
+                    return;
+                }
+                const counts = [0,0,0,0,0,0];
+                lastSpin.forEach(ci => counts[ci]++);
+                let summary = '<div class="hist-summary">';
+                for (let i = 0; i < 6; i++) {
+                    if (counts[i] > 0) {
+                        summary += '<span class="hist-swatch"><span class="hist-dot" style="background:' + COLORS[i] + ';box-shadow:0 0 8px ' + GLOW[i] + '"></span>' + names[i] + ' ×' + counts[i] + '</span>';
+                    }
+                }
+                summary += '</div>';
+                let seq = '<div class="hist-seq">';
+                lastSpin.forEach(ci => {
+                    seq += '<span class="hist-seqdot" style="background:' + COLORS[ci] + ';box-shadow:0 0 6px ' + GLOW[ci] + '"></span>';
+                });
+                seq += '</div>';
+                const unit = lastSpin.length === 1 ? T.die : T.dice;
+                const meta = '<div class="hist-meta">#' + spinNumber + ' • ' + lastSpin.length + ' ' + unit + '</div>';
+                el.innerHTML = meta + summary + seq;
+                if (cntEl) cntEl.textContent = '(' + lastSpin.length + ')';
+            }
+            function updateUnlocks() {
+                const T = TRANSLATIONS[currentLang] || TRANSLATIONS['en'];
+                [{id:'opt-bronze',rolls:10,name:'BRONZE'},{id:'opt-silver',rolls:20,name:'SILVER'},{id:'opt-gold',rolls:30,name:'GOLD'}].forEach(c => {
+                    const opt = document.getElementById(c.id);
+                    if (totalRolls >= c.rolls) {
+                        opt.disabled = false;
+                        opt.textContent = c.name + ' ' + T.unlocked;
+                    } else {
+                        opt.textContent = c.name + ' 🔒 (' + (c.rolls - totalRolls) + ' ' + T.rollsLeft + ')';
+                    }
+                });
+            }
+
+            const canvas = document.getElementById('particles');
+            const ctx = canvas.getContext('2d');
+            let particles = [];
+            function resizeCanvas() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+            resizeCanvas();
+            window.addEventListener('resize', resizeCanvas);
+            function spawnParticles(x, y, color, count) {
+                for (let i = 0; i < count; i++) {
+                    const angle = Math.random() * Math.PI * 2, speed = 2 + Math.random() * 5;
+                    particles.push({ x, y, vx: Math.cos(angle)*speed, vy: Math.sin(angle)*speed-3, radius: 4+Math.random()*5, color, alpha: 1, decay: 0.02+Math.random()*0.02, gravity: 0.15 });
+                }
+            }
+            function animateParticles() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                particles = particles.filter(p => p.alpha > 0);
+                particles.forEach(p => {
+                    p.x += p.vx; p.y += p.vy; p.vy += p.gravity; p.vx *= 0.98; p.alpha -= p.decay;
+                    ctx.save();
+                    ctx.globalAlpha = Math.max(0, p.alpha);
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.radius, 0, Math.PI*2);
+                    ctx.fillStyle = p.color;
+                    ctx.shadowColor = p.color;
+                    ctx.shadowBlur = 8;
+                    ctx.fill();
+                    ctx.restore();
+                });
+                requestAnimationFrame(animateParticles);
+            }
+            animateParticles();
+
+            function startRollAnimation() {
+                const btn = document.getElementById('rollBtn');
+                const dies = document.querySelectorAll('.die');
+                const comboEl = document.getElementById('combo-display');
+                totalRolls++;
+                comboCount++;
+                updateUnlocks();
+                ensureAudio();
+                if (comboCount > 1) {
+                    comboEl.textContent = 'COMBO x' + comboCount + ' !';
+                    comboEl.classList.remove('show-combo');
+                    void comboEl.offsetWidth;
+                    comboEl.classList.add('show-combo');
+                    comboEl.style.opacity = '1';
+                }
+                dies.forEach(die => {
+                    die.classList.remove('flipping','popping','colored');
+                    die.style.background = '';
+                    die.style.setProperty('--die-glow','');
+                    void die.offsetWidth;
+                    die.classList.add('suspense');
+                });
+                clearTimeout(spamTimeout);
+                spamTimeout = setTimeout(() => {
+                    btn.disabled = true;
+                    spinNumber++;
+                    // Use keybind-aware random color picker
+                    lastSpin = Array.from(dies).map(() => getRandomColorIndex());
+                    renderHistory();
+                    dies.forEach((die, i) => {
+                        setTimeout(() => {
+                            const ci = lastSpin[i], color = COLORS[ci], glow = GLOW[ci];
+                            die.classList.remove('suspense');
+                            die.style.background = color;
+                            die.style.setProperty('--die-glow', glow);
+                            die.classList.add('colored');
+                            const anim = Math.random() > 0.4 ? 'flipping' : 'popping';
+                            die.classList.add(anim);
+                            die.addEventListener('animationend', () => die.classList.remove(anim), { once: true });
+                            const rect = die.getBoundingClientRect();
+                            spawnParticles(rect.left + rect.width/2, rect.top + rect.height/2, color, dies.length <= 10 ? 18 : 8);
+                            playPopSound();
+                        }, i * (dies.length > 20 ? 30 : 60));
+                    });
+                    comboEl.classList.remove('show-combo');
+                    comboEl.style.opacity = '0';
+                    comboCount = 0;
+                    const td = dies.length * (dies.length > 20 ? 30 : 60) + 600;
+                    setTimeout(() => { btn.disabled = false; }, td);
+                }, 1500);
+            }
+
+            window.onload = function() {
+                buildDiceOptions();
+                generateDice();
+                updateVolUI();
+                renderHistory();
+            };
+        </script>
+        <div class="join-discord" id="joinDiscordEl">⟡ Join Server Discord</div>
+        <div class="info-section">
+            <div class="info-card">
+                <h2 id="sec1h">Color Dice – Roll Color Dice Online for Free</h2>
+                <p id="sec1p">Welcome to the best free <strong>online color dice roller</strong>! Roll <strong>color dice</strong> instantly — no download, no login required. This <strong>color dice generator</strong> uses a random algorithm giving each of the 6 colors an equal chance every roll.<br><br>Choose any number of <strong>color dice</strong> from 1 to 100. Each <strong>color die</strong> is 6-sided with 6 possible colors: <strong>Red, Orange, Yellow, Green, Blue</strong> and <strong>Purple</strong>. Perfect for board games, tabletop RPG, party games, or any game that needs a <strong>random color dice</strong> result.</p>
+            </div>
+            <div class="api-card">
+                <h2><span class="live-dot"></span>Live Online Counter – How It Works</h2>
+                <p>You may have noticed the <span class="api-highlight">🟢 <span id="api-count">1</span> online</span> badge at the top right of the page. This counter is <strong>100% real</strong> — it shows the actual number of people currently visiting this site.</p>
+                <p>To make this possible, the site uses <strong>Firebase Realtime Database</strong> — a live database by Google. Every time someone opens the page, a unique anonymous session is registered. No personal data is ever stored.</p>
+                <div class="api-steps">
+                    <div class="api-step"><div class="step-num">① YOU ARRIVE</div><p>A unique anonymous ID is generated and saved in the Firebase database.</p></div>
+                    <div class="api-step"><div class="step-num">② COUNTED LIVE</div><p>All visitors' browsers listen to the same database in real time.</p></div>
+                    <div class="api-step"><div class="step-num">③ YOU LEAVE</div><p>Firebase detects the disconnection and automatically deletes your entry.</p></div>
+                    <div class="api-step"><div class="step-num">④ MULTI-TAB</div><p>Each tab counts as a separate session.</p></div>
+                </div>
+            </div>
+            <div class="info-card">
+                <h2 id="sec2h">How do these Color Dice work?</h2>
+                <p id="sec2p">This <strong>color dice roller</strong> uses virtual dice created with an algorithm that assigns equal probabilities to every possible outcome. By clicking "Roll Again" you can re-roll all the <strong>color dice</strong> on this page.<br><br>Choose any number of <strong>dice</strong> between 1 and 100, each having 6 sides and 6 possible <strong>colors</strong>: <strong>Red, Orange, Yellow, Green, Blue</strong> and <strong>Purple</strong>. Works on any device — desktop, mobile or tablet.</p>
+            </div>
+            <div class="info-card">
+                <h2 id="sec3h">About our Color Dice Roller</h2>
+                <p id="sec3p">This <strong>color dice</strong> website is a free online <strong>color dice</strong> simulator that anyone can use to roll <strong>virtual color dice</strong> when no real dice are available.</p>
+            </div>
+            <div class="info-card">
+                <h2 id="faqTitle">Frequently Asked Questions – Color Dice</h2>
+                <div class="blog-grid">
+                    <div class="blog-post"><h3 id="faq1q">What is a color dice?</h3><p id="faq1a">A <strong>color dice</strong> is a 6-sided die where each face shows a color: Red, Orange, Yellow, Green, Blue, and Purple.</p></div>
+                    <div class="blog-post"><h3 id="faq2q">How to roll color dice online?</h3><p id="faq2a">Choose the number of <strong>color dice</strong> (1–100) and click <strong>Roll Again</strong>. Free, instant, no app needed.</p></div>
+                    <div class="blog-post"><h3 id="faq3q">What colors can the dice show?</h3><p id="faq3a">Each <strong>color die</strong> can show: <strong>Red, Orange, Yellow, Green, Blue</strong> or <strong>Purple</strong>. Every color has 1 in 6 chance.</p></div>
+                    <div class="blog-post"><h3 id="faq4q">Is this color dice roller free?</h3><p id="faq4a">Yes! This <strong>color dice roller</strong> is 100% free. No download, no signup needed.</p></div>
+                    <div class="blog-post"><h3 id="faq5q">How many color dice can I roll?</h3><p id="faq5a">You can roll from <strong>1 to 100 color dice</strong> at once.</p></div>
+                    <div class="blog-post"><h3 id="faq6q">Can I use color dice on mobile?</h3><p id="faq6a">Yes! Works perfectly on mobile, tablet and desktop.</p></div>
+                </div>
+            </div>
+            <div class="info-card">
+                <h2 id="blogTitleEl">Blog Posts – Color Dice &amp; Dice Games</h2>
+                <div class="blog-grid">
+                    <div class="blog-post"><h3 id="blog1h">The History of Dice and Dice Games</h3><p id="blog1p">Dice have been used as a form of chance-based gaming for thousands of years, with evidence of their use dating back to ancient civilizations such as Egypt, Greece, and Rome.</p></div>
+                    <div class="blog-post"><h3 id="blog2h">The Most Popular Dice Games in the World</h3><p id="blog2p">Dice games have been a staple of gaming culture for thousands of years and continue to be popular today.</p></div>
+                    <div class="blog-post"><h3 id="blog3h">The Role of Luck and Strategy in Dice Games</h3><p id="blog3p">Dice games have been a popular form of entertainment for centuries and are a classic example of games that rely on both luck and strategy.</p></div>
+                    <div class="blog-post"><h3 id="blog4h">Accelerated Mobile Experience (AMP)</h3><p id="blog4p">Great news for our mobile users: We are about to add accelerated mobile pages (AMP) for an even faster experience.</p></div>
+                    <div class="blog-post"><h3 id="blog5h">New logo &amp; website design</h3><p id="blog5p">Today we are releasing our new website design, with a fresh logo and improved layout.</p></div>
+                    <div class="blog-post"><h3 id="blog6h">Dice Probabilities – Part 3</h3><p id="blog6p">What is my chance of rolling all the values on "n" dice equal to or higher than some number "y"?</p></div>
+                    <div class="blog-post"><h3 id="blog7h">Dice Probabilities – Part 2</h3><p id="blog7p">What is the probability of rolling the SAME value on each and every die from a set of two dice or more?</p></div>
+                    <div class="blog-post"><h3 id="blog8h">Dice Probabilities – Part 1</h3><p id="blog8p">What are the chances of rolling exactly a 4 with a pair of two regular 6-sided dice?</p></div>
+                    <div class="blog-post"><h3 id="blog9h">New color dice roller available now</h3><p id="blog9p">As promised we are releasing our new <strong>color dice roller</strong> today. It allows users to roll up to 100 six-sided color dice.</p></div>
+                    <div class="blog-post"><h3 id="blog10h">We are working on a color dice roller</h3><p id="blog10p">We are excited to share that we are about to release a <strong>color dice roller</strong> in the coming days.</p></div>
+                    <div class="blog-post"><h3 id="blog11h">Launching a new dice roller</h3><p id="blog11p">Exciting news! From today you can use our new and improved dice roller that lets you roll up to 100 dice with 6 different shapes.</p></div>
+                    <div class="blog-post"><h3 id="blog12h">Welcome</h3><p id="blog12p">Today we are starting this new blog to keep our loyal users updated about any changes, improvements, bug fixes and/or news.</p></div>
+                </div>
+            </div>
+        </div>
+        <div class="site-footer">
+            <span id="footerText">© 2026 Roll Color Dice — Created by Retox &amp; Geoman</span>
+            <a href="https://discord.gg/GVkHyNvMUH" target="_blank" id="footerContact">Contact us</a>
+        </div>
+        <div class="lang-switcher">
+            <div class="lang-switcher-label">🌐 Select your language</div>
+            <button class="lang-btn active" onclick="setLang('en')">🇬🇧 EN</button>
+            <button class="lang-btn" onclick="setLang('fr')">🇫🇷 FR</button>
+            <button class="lang-btn" onclick="setLang('es')">🇪🇸 ES</button>
+            <button class="lang-btn" onclick="setLang('de')">🇩🇪 DE</button>
+            <button class="lang-btn" onclick="setLang('it')">🇮🇹 IT</button>
+            <button class="lang-btn" onclick="setLang('pt')">🇧🇷 PT</button>
+            <button class="lang-btn" onclick="setLang('ru')">🇷🇺 RU</button>
+            <button class="lang-btn" onclick="setLang('nl')">🇳🇱 NL</button>
+            <button class="lang-btn" onclick="setLang('pl')">🇵🇱 PL</button>
+            <button class="lang-btn" onclick="setLang('tr')">🇹🇷 TR</button>
+            <button class="lang-btn" onclick="setLang('zh')">🇨🇳 ZH</button>
+            <button class="lang-btn" onclick="setLang('ja')">🇯🇵 JA</button>
+            <button class="lang-btn" onclick="setLang('ko')">🇰🇷 KO</button>
+            <button class="lang-btn" onclick="setLang('ar')">🇸🇦 AR</button>
+        </div>
+
+        <script>
+            const TRANSLATIONS = {
+                en: { h1:'COLOR DICE – ROLL COLOR DICE',rollBtn:'ROLL AGAIN !',themeLabel:'🎨 Theme',diceLabel:'🎲 Number of Dice',online:'online',joinDiscord:'⟡ Join Server Discord',colorsIntro:'Possible colors are:',cRed:'Red',cOrange:'Orange',cYellow:'Yellow',cGreen:'Green',cBlue:'Blue',cPurple:'Purple',andWord:'and',die:'DIE',dice:'DICE',sec1h:'Color Dice – Roll Color Dice Online for Free',sec1p:'Welcome to the best free <strong>online color dice roller</strong>! Roll <strong>color dice</strong> instantly — no download, no login required.',sec2h:'How do these Color Dice work?',sec2p:'Click "Roll Again" to re-roll all the <strong>color dice</strong> on this page. Choose any number between 1 and 100.',sec3h:'About our Color Dice Roller',sec3p:'This <strong>color dice</strong> website is a free online <strong>color dice</strong> simulator.',faqTitle:'Frequently Asked Questions – Color Dice',faq1q:'What is a color dice?',faq1a:'A <strong>color dice</strong> is a 6-sided die where each face shows a color: Red, Orange, Yellow, Green, Blue, and Purple.',faq2q:'How to roll color dice online?',faq2a:'Choose the number of <strong>color dice</strong> (1–100) and click <strong>Roll Again</strong>.',faq3q:'What colors can the dice show?',faq3a:'Each <strong>color die</strong> can show: <strong>Red, Orange, Yellow, Green, Blue</strong> or <strong>Purple</strong>.',faq4q:'Is this color dice roller free?',faq4a:'Yes! This <strong>color dice roller</strong> is 100% free.',faq5q:'How many color dice can I roll?',faq5a:'You can roll from <strong>1 to 100 color dice</strong> at once.',faq6q:'Can I use color dice on mobile?',faq6a:'Yes! Works perfectly on mobile, tablet and desktop.',blogTitle:'Blog Posts – Color Dice & Dice Games',blog1h:'The History of Dice',blog1p:'Dice have been used for thousands of years.',blog2h:'Popular Dice Games',blog2p:'Dice games are a staple of gaming culture.',blog3h:'Luck and Strategy',blog3p:'Dice games combine luck and strategy.',blog4h:'AMP',blog4p:'Accelerated mobile pages coming soon.',blog5h:'New Design',blog5p:'New logo and improved layout.',blog6h:'Dice Probabilities – Part 3',blog6p:'What is my chance of rolling n dice equal to or higher than y?',blog7h:'Dice Probabilities – Part 2',blog7p:'What is the probability of rolling the same value on all dice?',blog8h:'Dice Probabilities – Part 1',blog8p:'What are the chances of rolling exactly a 4?',blog9h:'New color dice roller',blog9p:'Our new <strong>color dice roller</strong> is now available.',blog10h:'Coming soon',blog10p:'A <strong>color dice roller</strong> is coming soon.',blog11h:'New dice roller',blog11p:'Roll up to 100 dice with 6 shapes.',blog12h:'Welcome',blog12p:'Welcome to our blog.',footerText:'© 2026 Roll Color Dice — Created by Retox & Geoman',footerContact:'Contact us',unlocked:'✅ UNLOCKED',rollsLeft:'rolls left',historyTitle:'Last Spin History',historyEmpty:'Roll the dice to see your last spin here!' },
+                fr: { h1:'DÉS COULEUR – LANCEZ VOS DÉS COULEUR',rollBtn:'LANCER ENCORE !',themeLabel:'🎨 Thème',diceLabel:'🎲 Nombre de Dés',online:'en ligne',joinDiscord:'⟡ Rejoindre le Discord',colorsIntro:'Les couleurs possibles sont :',cRed:'Rouge',cOrange:'Orange',cYellow:'Jaune',cGreen:'Vert',cBlue:'Bleu',cPurple:'Violet',andWord:'et',die:'DÉ',dice:'DÉS',sec1h:'Dés Couleur',sec1p:'Lancez des <strong>dés couleur</strong> en ligne gratuitement.',sec2h:'Comment ça marche ?',sec2p:'Cliquez sur "Lancer Encore" pour relancer.',sec3h:'À propos',sec3p:'Simulateur gratuit.',faqTitle:'FAQ',faq1q:"Qu'est-ce qu'un dé couleur ?",faq1a:'Un dé à 6 faces avec une couleur par face.',faq2q:'Comment jouer ?',faq2a:'Choisissez le nombre et cliquez.',faq3q:'Quelles couleurs ?',faq3a:'Rouge, Orange, Jaune, Vert, Bleu, Violet.',faq4q:'Gratuit ?',faq4a:'Oui, 100% gratuit.',faq5q:'Combien de dés ?',faq5a:'1 à 100.',faq6q:'Mobile ?',faq6a:'Oui !',blogTitle:'Blog',blog1h:'Histoire',blog1p:'Les dés existent depuis des millénaires.',blog2h:'Jeux populaires',blog2p:'Les jeux de dés sont populaires.',blog3h:'Chance',blog3p:'Mélange de chance et stratégie.',blog4h:'AMP',blog4p:'Pages mobiles rapides bientôt.',blog5h:'Nouveau design',blog5p:'Logo et layout améliorés.',blog6h:'Proba 3',blog6p:'Proba pour n dés.',blog7h:'Proba 2',blog7p:'Même valeur sur tous.',blog8h:'Proba 1',blog8p:'Chance d\'obtenir un 4.',blog9h:'Nouveau',blog9p:'Nouveau lanceur disponible.',blog10h:'Bientôt',blog10p:'Bientôt disponible.',blog11h:'Lanceur',blog11p:'Jusqu\'à 100 dés.',blog12h:'Bienvenue',blog12p:'Bienvenue sur le blog.',footerText:'© 2026 Dés Couleur — Créé par Retox & Geoman',footerContact:'Nous contacter',unlocked:'✅ DÉBLOQUÉ',rollsLeft:'lancers restants',historyTitle:'Historique',historyEmpty:'Lancez les dés !' },
+                es: { h1:'DADOS DE COLOR',rollBtn:'¡LANZAR DE NUEVO!',themeLabel:'🎨 Tema',diceLabel:'🎲 Dados',online:'en línea',joinDiscord:'⟡ Unirse al Discord',colorsIntro:'Colores posibles:',cRed:'Rojo',cOrange:'Naranja',cYellow:'Amarillo',cGreen:'Verde',cBlue:'Azul',cPurple:'Morado',andWord:'y',die:'DADO',dice:'DADOS',sec1h:'Dados de Color',sec1p:'Lanza <strong>dados de color</strong> online gratis.',sec2h:'¿Cómo funciona?',sec2p:'Haz clic en lanzar.',sec3h:'Acerca de',sec3p:'Simulador gratuito.',faqTitle:'FAQ',faq1q:'¿Qué es?',faq1a:'Dado de 6 caras con colores.',faq2q:'¿Cómo jugar?',faq2a:'Elige y haz clic.',faq3q:'¿Colores?',faq3a:'Rojo, Naranja, Amarillo, Verde, Azul, Morado.',faq4q:'¿Gratis?',faq4a:'Sí.',faq5q:'¿Cuántos?',faq5a:'1 a 100.',faq6q:'¿Móvil?',faq6a:'Sí.',blogTitle:'Blog',blog1h:'Historia',blog1p:'Dados desde la antigüedad.',blog2h:'Juegos',blog2p:'Juegos populares.',blog3h:'Suerte',blog3p:'Suerte y estrategia.',blog4h:'AMP',blog4p:'Próximamente.',blog5h:'Diseño',blog5p:'Nuevo diseño.',blog6h:'Prob 3',blog6p:'n dados.',blog7h:'Prob 2',blog7p:'Mismo valor.',blog8h:'Prob 1',blog8p:'Chance de 4.',blog9h:'Nuevo',blog9p:'Nuevo lanzador.',blog10h:'Pronto',blog10p:'Próximamente.',blog11h:'Lanzador',blog11p:'Hasta 100.',blog12h:'Bienvenido',blog12p:'Blog nuevo.',footerText:'© 2026 Dados de Color',footerContact:'Contáctanos',unlocked:'✅ DESBLOQUEADO',rollsLeft:'tiradas restantes',historyTitle:'Historial',historyEmpty:'¡Lanza los dados!' },
+                de: { h1:'FARBWÜRFEL',rollBtn:'NOCHMAL WÜRFELN!',themeLabel:'🎨 Thema',diceLabel:'🎲 Würfel',online:'online',joinDiscord:'⟡ Discord',colorsIntro:'Mögliche Farben:',cRed:'Rot',cOrange:'Orange',cYellow:'Gelb',cGreen:'Grün',cBlue:'Blau',cPurple:'Lila',andWord:'und',die:'WÜRFEL',dice:'WÜRFEL',sec1h:'Farbwürfel',sec1p:'Kostenlos online würfeln.',sec2h:'Wie funktioniert es?',sec2p:'Klicken Sie auf würfeln.',sec3h:'Über uns',sec3p:'Kostenloser Simulator.',faqTitle:'FAQ',faq1q:'Was ist ein Farbwürfel?',faq1a:'6-seitiger Würfel mit Farben.',faq2q:'Wie spielen?',faq2a:'Wählen und klicken.',faq3q:'Farben?',faq3a:'Rot, Orange, Gelb, Grün, Blau, Lila.',faq4q:'Kostenlos?',faq4a:'Ja.',faq5q:'Wie viele?',faq5a:'1 bis 100.',faq6q:'Mobil?',faq6a:'Ja.',blogTitle:'Blog',blog1h:'Geschichte',blog1p:'Würfel seit Jahrtausenden.',blog2h:'Spiele',blog2p:'Beliebte Würfelspiele.',blog3h:'Glück',blog3p:'Glück und Strategie.',blog4h:'AMP',blog4p:'Bald.',blog5h:'Design',blog5p:'Neues Design.',blog6h:'Prob 3',blog6p:'n Würfel.',blog7h:'Prob 2',blog7p:'Gleicher Wert.',blog8h:'Prob 1',blog8p:'Chance auf 4.',blog9h:'Neu',blog9p:'Neuer Roller.',blog10h:'Bald',blog10p:'Kommt bald.',blog11h:'Roller',blog11p:'Bis 100.',blog12h:'Willkommen',blog12p:'Neuer Blog.',footerText:'© 2026 Farbwürfel',footerContact:'Kontakt',unlocked:'✅ FREIGESCHALTET',rollsLeft:'Würfe übrig',historyTitle:'Verlauf',historyEmpty:'Würfeln!' },
+                it:{h1:'DADI COLORATI',rollBtn:'LANCIA ANCORA!',themeLabel:'🎨 Tema',diceLabel:'🎲 Dadi',online:'online',joinDiscord:'⟡ Discord',colorsIntro:'Colori possibili:',cRed:'Rosso',cOrange:'Arancione',cYellow:'Giallo',cGreen:'Verde',cBlue:'Blu',cPurple:'Viola',andWord:'e',die:'DADO',dice:'DADI',sec1h:'Dadi Colorati',sec1p:'Lancia dadi online.',sec2h:'Come funziona?',sec2p:'Clicca lancia.',sec3h:'Info',sec3p:'Simulatore gratuito.',faqTitle:'FAQ',faq1q:'Cos\'è?',faq1a:'Dado 6 facce colorate.',faq2q:'Come?',faq2a:'Scegli e clicca.',faq3q:'Colori?',faq3a:'Rosso,Arancione,Giallo,Verde,Blu,Viola.',faq4q:'Gratis?',faq4a:'Sì.',faq5q:'Quanti?',faq5a:'1-100.',faq6q:'Mobile?',faq6a:'Sì.',blogTitle:'Blog',blog1h:'Storia',blog1p:'Dadi da millenni.',blog2h:'Giochi',blog2p:'Giochi popolari.',blog3h:'Fortuna',blog3p:'Fortuna e strategia.',blog4h:'AMP',blog4p:'Presto.',blog5h:'Design',blog5p:'Nuovo.',blog6h:'Prob 3',blog6p:'n dadi.',blog7h:'Prob 2',blog7p:'Stesso valore.',blog8h:'Prob 1',blog8p:'Chance 4.',blog9h:'Nuovo',blog9p:'Nuovo roller.',blog10h:'Presto',blog10p:'In arrivo.',blog11h:'Roller',blog11p:'Fino a 100.',blog12h:'Benvenuto',blog12p:'Nuovo blog.',footerText:'© 2026 Dadi Colorati',footerContact:'Contattaci',unlocked:'✅ SBLOCCATO',rollsLeft:'lanci rimanenti',historyTitle:'Cronologia',historyEmpty:'Lancia i dadi!'},
+                pt:{h1:'DADOS COLORIDOS',rollBtn:'ROLAR NOVAMENTE!',themeLabel:'🎨 Tema',diceLabel:'🎲 Dados',online:'online',joinDiscord:'⟡ Discord',colorsIntro:'Cores possíveis:',cRed:'Vermelho',cOrange:'Laranja',cYellow:'Amarelo',cGreen:'Verde',cBlue:'Azul',cPurple:'Roxo',andWord:'e',die:'DADO',dice:'DADOS',sec1h:'Dados Coloridos',sec1p:'Role dados online.',sec2h:'Como funciona?',sec2p:'Clique em rolar.',sec3h:'Sobre',sec3p:'Simulador gratuito.',faqTitle:'FAQ',faq1q:'O que é?',faq1a:'Dado 6 faces coloridas.',faq2q:'Como?',faq2a:'Escolha e clique.',faq3q:'Cores?',faq3a:'Vermelho,Laranja,Amarelo,Verde,Azul,Roxo.',faq4q:'Grátis?',faq4a:'Sim.',faq5q:'Quantos?',faq5a:'1-100.',faq6q:'Mobile?',faq6a:'Sim.',blogTitle:'Blog',blog1h:'História',blog1p:'Dados há milênios.',blog2h:'Jogos',blog2p:'Jogos populares.',blog3h:'Sorte',blog3p:'Sorte e estratégia.',blog4h:'AMP',blog4p:'Em breve.',blog5h:'Design',blog5p:'Novo design.',blog6h:'Prob 3',blog6p:'n dados.',blog7h:'Prob 2',blog7p:'Mesmo valor.',blog8h:'Prob 1',blog8p:'Chance 4.',blog9h:'Novo',blog9p:'Novo roller.',blog10h:'Em breve',blog10p:'Chegando.',blog11h:'Roller',blog11p:'Até 100.',blog12h:'Bem-vindo',blog12p:'Novo blog.',footerText:'© 2026 Dados Coloridos',footerContact:'Contate-nos',unlocked:'✅ DESBLOQUEADO',rollsLeft:'rolagens restantes',historyTitle:'Histórico',historyEmpty:'Role os dados!'},
+                ru:{h1:'ЦВЕТНЫЕ КУБИКИ',rollBtn:'БРОСИТЬ ЕЩЁ РАЗ!',themeLabel:'🎨 Тема',diceLabel:'🎲 Кубики',online:'онлайн',joinDiscord:'⟡ Discord',colorsIntro:'Возможные цвета:',cRed:'Красный',cOrange:'Оранжевый',cYellow:'Жёлтый',cGreen:'Зелёный',cBlue:'Синий',cPurple:'Фиолетовый',andWord:'и',die:'КУБИК',dice:'КУБИКИ',sec1h:'Цветные кубики',sec1p:'Бросайте кубики онлайн.',sec2h:'Как работает?',sec2p:'Нажмите бросить.',sec3h:'О нас',sec3p:'Бесплатный симулятор.',faqTitle:'FAQ',faq1q:'Что это?',faq1a:'6-гранный кубик с цветами.',faq2q:'Как играть?',faq2a:'Выберите и нажмите.',faq3q:'Цвета?',faq3a:'Красный,Оранжевый,Жёлтый,Зелёный,Синий,Фиолетовый.',faq4q:'Бесплатно?',faq4a:'Да.',faq5q:'Сколько?',faq5a:'1-100.',faq6q:'Мобильный?',faq6a:'Да.',blogTitle:'Блог',blog1h:'История',blog1p:'Кубики тысячи лет.',blog2h:'Игры',blog2p:'Популярные игры.',blog3h:'Удача',blog3p:'Удача и стратегия.',blog4h:'AMP',blog4p:'Скоро.',blog5h:'Дизайн',blog5p:'Новый.',blog6h:'Вер 3',blog6p:'n кубиков.',blog7h:'Вер 2',blog7p:'Одно значение.',blog8h:'Вер 1',blog8p:'Шанс 4.',blog9h:'Новый',blog9p:'Новый роллер.',blog10h:'Скоро',blog10p:'Скоро.',blog11h:'Роллер',blog11p:'До 100.',blog12h:'Добро пожаловать',blog12p:'Новый блог.',footerText:'© 2026 Цветные кубики',footerContact:'Связаться',unlocked:'✅ РАЗБЛОКИРОВАНО',rollsLeft:'бросков',historyTitle:'История',historyEmpty:'Бросьте кубики!'},
+                nl:{h1:'KLEURDOBBELSTENEN',rollBtn:'OPNIEUW GOOIEN!',themeLabel:'🎨 Thema',diceLabel:'🎲 Dobbelstenen',online:'online',joinDiscord:'⟡ Discord',colorsIntro:'Mogelijke kleuren:',cRed:'Rood',cOrange:'Oranje',cYellow:'Geel',cGreen:'Groen',cBlue:'Blauw',cPurple:'Paars',andWord:'en',die:'DOBBELSTEEN',dice:'DOBBELSTENEN',sec1h:'Kleurdobbelstenen',sec1p:'Gooi dobbelstenen online.',sec2h:'Hoe werkt het?',sec2p:'Klik op gooien.',sec3h:'Over ons',sec3p:'Gratis simulator.',faqTitle:'FAQ',faq1q:'Wat is het?',faq1a:'6-zijdige dobbelsteen met kleuren.',faq2q:'Hoe?',faq2a:'Kies en klik.',faq3q:'Kleuren?',faq3a:'Rood,Oranje,Geel,Groen,Blauw,Paars.',faq4q:'Gratis?',faq4a:'Ja.',faq5q:'Hoeveel?',faq5a:'1-100.',faq6q:'Mobiel?',faq6a:'Ja.',blogTitle:'Blog',blog1h:'Geschiedenis',blog1p:'Dobbelstenen eeuwenoud.',blog2h:'Spellen',blog2p:'Populaire spellen.',blog3h:'Geluk',blog3p:'Geluk en strategie.',blog4h:'AMP',blog4p:'Binnenkort.',blog5h:'Design',blog5p:'Nieuw design.',blog6h:'Kans 3',blog6p:'n dobbelstenen.',blog7h:'Kans 2',blog7p:'Zelfde waarde.',blog8h:'Kans 1',blog8p:'Kans op 4.',blog9h:'Nieuw',blog9p:'Nieuwe roller.',blog10h:'Binnenkort',blog10p:'Komt binnenkort.',blog11h:'Roller',blog11p:'Tot 100.',blog12h:'Welkom',blog12p:'Nieuw blog.',footerText:'© 2026 Kleurdobbelstenen',footerContact:'Contact',unlocked:'✅ ONTGRENDELD',rollsLeft:'worpen over',historyTitle:'Geschiedenis',historyEmpty:'Gooi de dobbelstenen!'},
+                pl:{h1:'KOLOROWE KOŚCI',rollBtn:'RZUĆ PONOWNIE!',themeLabel:'🎨 Motyw',diceLabel:'🎲 Kości',online:'online',joinDiscord:'⟡ Discord',colorsIntro:'Możliwe kolory:',cRed:'Czerwony',cOrange:'Pomarańczowy',cYellow:'Żółty',cGreen:'Zielony',cBlue:'Niebieski',cPurple:'Fioletowy',andWord:'i',die:'KOŚĆ',dice:'KOŚCI',sec1h:'Kolorowe Kości',sec1p:'Rzucaj kośćmi online.',sec2h:'Jak to działa?',sec2p:'Kliknij rzuć.',sec3h:'O nas',sec3p:'Darmowy symulator.',faqTitle:'FAQ',faq1q:'Co to jest?',faq1a:'6-ścienna kość z kolorami.',faq2q:'Jak grać?',faq2a:'Wybierz i kliknij.',faq3q:'Kolory?',faq3a:'Czerwony,Pomarańczowy,Żółty,Zielony,Niebieski,Fioletowy.',faq4q:'Darmowe?',faq4a:'Tak.',faq5q:'Ile kości?',faq5a:'1-100.',faq6q:'Mobilny?',faq6a:'Tak.',blogTitle:'Blog',blog1h:'Historia',blog1p:'Kości od tysiącleci.',blog2h:'Gry',blog2p:'Popularne gry.',blog3h:'Szczęście',blog3p:'Szczęście i strategia.',blog4h:'AMP',blog4p:'Wkrótce.',blog5h:'Design',blog5p:'Nowy design.',blog6h:'Proba 3',blog6p:'n kości.',blog7h:'Proba 2',blog7p:'Taka sama wartość.',blog8h:'Proba 1',blog8p:'Szansa na 4.',blog9h:'Nowy',blog9p:'Nowy roller.',blog10h:'Wkrótce',blog10p:'Już wkrótce.',blog11h:'Roller',blog11p:'Do 100.',blog12h:'Witamy',blog12p:'Nowy blog.',footerText:'© 2026 Kolorowe Kości',footerContact:'Kontakt',unlocked:'✅ ODBLOKOWANE',rollsLeft:'rzutów zostało',historyTitle:'Historia',historyEmpty:'Rzuć kośćmi!'},
+                tr:{h1:'RENKLİ ZAR',rollBtn:'TEKRAR AT!',themeLabel:'🎨 Tema',diceLabel:'🎲 Zar',online:'çevrimiçi',joinDiscord:'⟡ Discord',colorsIntro:'Olası renkler:',cRed:'Kırmızı',cOrange:'Turuncu',cYellow:'Sarı',cGreen:'Yeşil',cBlue:'Mavi',cPurple:'Mor',andWord:'ve',die:'ZAR',dice:'ZAR',sec1h:'Renkli Zar',sec1p:'Online zar at.',sec2h:'Nasıl çalışır?',sec2p:'Tıkla ve at.',sec3h:'Hakkında',sec3p:'Ücretsiz simülatör.',faqTitle:'SSS',faq1q:'Nedir?',faq1a:'6 yüzlü renkli zar.',faq2q:'Nasıl?',faq2a:'Seç ve tıkla.',faq3q:'Renkler?',faq3a:'Kırmızı,Turuncu,Sarı,Yeşil,Mavi,Mor.',faq4q:'Ücretsiz?',faq4a:'Evet.',faq5q:'Kaç tane?',faq5a:'1-100.',faq6q:'Mobil?',faq6a:'Evet.',blogTitle:'Blog',blog1h:'Tarih',blog1p:'Zarlar binlerce yıllık.',blog2h:'Oyunlar',blog2p:'Popüler oyunlar.',blog3h:'Şans',blog3p:'Şans ve strateji.',blog4h:'AMP',blog4p:'Yakında.',blog5h:'Tasarım',blog5p:'Yeni tasarım.',blog6h:'Olasılık 3',blog6p:'n zar.',blog7h:'Olasılık 2',blog7p:'Aynı değer.',blog8h:'Olasılık 1',blog8p:'4 gelme şansı.',blog9h:'Yeni',blog9p:'Yeni roller.',blog10h:'Yakında',blog10p:'Geliyor.',blog11h:'Roller',blog11p:'100\'e kadar.',blog12h:'Hoş geldiniz',blog12p:'Yeni blog.',footerText:'© 2026 Renkli Zar',footerContact:'İletişim',unlocked:'✅ KİLİDİ AÇILDI',rollsLeft:'atış kaldı',historyTitle:'Geçmiş',historyEmpty:'Zar at!'},
+                zh:{h1:'彩色骰子',rollBtn:'再次投掷！',themeLabel:'🎨 主题',diceLabel:'🎲 骰子',online:'在线',joinDiscord:'⟡ Discord',colorsIntro:'可能的颜色：',cRed:'红色',cOrange:'橙色',cYellow:'黄色',cGreen:'绿色',cBlue:'蓝色',cPurple:'紫色',andWord:'和',die:'个',dice:'个',sec1h:'彩色骰子',sec1p:'在线投掷彩色骰子。',sec2h:'如何使用？',sec2p:'点击投掷。',sec3h:'关于',sec3p:'免费模拟器。',faqTitle:'常见问题',faq1q:'什么是彩色骰子？',faq1a:'6面骰子，每面一种颜色。',faq2q:'怎么玩？',faq2a:'选择并点击。',faq3q:'颜色？',faq3a:'红橙黄绿蓝紫。',faq4q:'免费吗？',faq4a:'是。',faq5q:'多少个？',faq5a:'1-100。',faq6q:'手机？',faq6a:'是。',blogTitle:'博客',blog1h:'历史',blog1p:'骰子数千年。',blog2h:'游戏',blog2p:'流行游戏。',blog3h:'运气',blog3p:'运气和策略。',blog4h:'AMP',blog4p:'即将推出。',blog5h:'设计',blog5p:'新设计。',blog6h:'概率3',blog6p:'n个骰子。',blog7h:'概率2',blog7p:'相同值。',blog8h:'概率1',blog8p:'掷出4的机会。',blog9h:'新',blog9p:'新滚轮。',blog10h:'即将',blog10p:'即将推出。',blog11h:'滚轮',blog11p:'最多100个。',blog12h:'欢迎',blog12p:'新博客。',footerText:'© 2026 彩色骰子',footerContact:'联系我们',unlocked:'✅ 已解锁',rollsLeft:'次剩余',historyTitle:'记录',historyEmpty:'投掷骰子！'},
+                ja:{h1:'カラーダイス',rollBtn:'もう一度振る！',themeLabel:'🎨 テーマ',diceLabel:'🎲 個数',online:'オンライン',joinDiscord:'⟡ Discord',colorsIntro:'可能な色：',cRed:'赤',cOrange:'オレンジ',cYellow:'黄',cGreen:'緑',cBlue:'青',cPurple:'紫',andWord:'と',die:'個',dice:'個',sec1h:'カラーダイス',sec1p:'オンラインで振る。',sec2h:'使い方',sec2p:'クリックして振る。',sec3h:'について',sec3p:'無料シミュレータ。',faqTitle:'FAQ',faq1q:'カラーダイスとは？',faq1a:'6面のサイコロ。',faq2q:'使い方?',faq2a:'選んでクリック。',faq3q:'色は？',faq3a:'赤オレンジ黄緑青紫。',faq4q:'無料？',faq4a:'はい。',faq5q:'いくつ？',faq5a:'1-100。',faq6q:'モバイル？',faq6a:'はい。',blogTitle:'ブログ',blog1h:'歴史',blog1p:'数千年の歴史。',blog2h:'ゲーム',blog2p:'人気ゲーム。',blog3h:'運',blog3p:'運と戦略。',blog4h:'AMP',blog4p:'近日公開。',blog5h:'デザイン',blog5p:'新デザイン。',blog6h:'確率3',blog6p:'nダイス。',blog7h:'確率2',blog7p:'同じ値。',blog8h:'確率1',blog8p:'4の確率。',blog9h:'新しい',blog9p:'新ローラー。',blog10h:'近日',blog10p:'近日公開。',blog11h:'ローラー',blog11p:'100まで。',blog12h:'ようこそ',blog12p:'新ブログ。',footerText:'© 2026 カラーダイス',footerContact:'お問い合わせ',unlocked:'✅ 解除済み',rollsLeft:'回残り',historyTitle:'履歴',historyEmpty:'振ってください！'},
+                ko:{h1:'컬러 주사위',rollBtn:'다시 굴리기!',themeLabel:'🎨 테마',diceLabel:'🎲 개수',online:'온라인',joinDiscord:'⟡ Discord',colorsIntro:'가능한 색상:',cRed:'빨강',cOrange:'주황',cYellow:'노랑',cGreen:'초록',cBlue:'파랑',cPurple:'보라',andWord:'및',die:'개',dice:'개',sec1h:'컬러 주사위',sec1p:'온라인 주사위.',sec2h:'사용법',sec2p:'클릭하여 굴리기.',sec3h:'소개',sec3p:'무료 시뮬레이터.',faqTitle:'FAQ',faq1q:'무엇인가요?',faq1a:'6면 주사위.',faq2q:'사용법?',faq2a:'선택하고 클릭.',faq3q:'색상?',faq3a:'빨주노초파보.',faq4q:'무료?',faq4a:'예.',faq5q:'몇 개?',faq5a:'1-100.',faq6q:'모바일?',faq6a:'예.',blogTitle:'블로그',blog1h:'역사',blog1p:'수천 년 역사.',blog2h:'게임',blog2p:'인기 게임.',blog3h:'운',blog3p:'운과 전략.',blog4h:'AMP',blog4p:'곧 출시.',blog5h:'디자인',blog5p:'새 디자인.',blog6h:'확률3',blog6p:'n개.',blog7h:'확률2',blog7p:'같은 값.',blog8h:'확률1',blog8p:'4 확률.',blog9h:'새',blog9p:'새 롤러.',blog10h:'곧',blog10p:'곧 출시.',blog11h:'롤러',blog11p:'100까지.',blog12h:'환영',blog12p:'새 블로그.',footerText:'© 2026 컬러 주사위',footerContact:'문의',unlocked:'✅ 해제됨',rollsLeft:'번 남음',historyTitle:'기록',historyEmpty:'주사위 굴려보세요!'},
+                ar:{h1:'نرد الألوان',rollBtn:'!ارمِ مجدداً',themeLabel:'🎨 السمة',diceLabel:'🎲 عدد النرد',online:'متصل',joinDiscord:'⟡ Discord',colorsIntro:'الألوان الممكنة:',cRed:'أحمر',cOrange:'برتقالي',cYellow:'أصفر',cGreen:'أخضر',cBlue:'أزرق',cPurple:'بنفسجي',andWord:'و',die:'نردة',dice:'نرد',sec1h:'نرد الألوان',sec1p:'ارمِ النرد عبر الإنترنت.',sec2h:'كيف يعمل؟',sec2p:'انقر على ارمِ.',sec3h:'عن الموقع',sec3p:'محاكٍ مجاني.',faqTitle:'أسئلة',faq1q:'ما هو؟',faq1a:'نرد ذو 6 وجوه.',faq2q:'كيف؟',faq2a:'اختر وانقر.',faq3q:'الألوان؟',faq3a:'أحمر برتقالي أصفر أخضر أزرق بنفسجي.',faq4q:'مجاني؟',faq4a:'نعم.',faq5q:'كم نردة؟',faq5a:'1-100.',faq6q:'جوال؟',faq6a:'نعم.',blogTitle:'مدونة',blog1h:'التاريخ',blog1p:'نرد منذ آلاف السنين.',blog2h:'ألعاب',blog2p:'ألعاب شعبية.',blog3h:'الحظ',blog3p:'حظ واستراتيجية.',blog4h:'AMP',blog4p:'قريباً.',blog5h:'تصميم',blog5p:'تصميم جديد.',blog6h:'احتمال3',blog6p:'ن نرد.',blog7h:'احتمال2',blog7p:'نفس القيمة.',blog8h:'احتمال1',blog8p:'فرصة 4.',blog9h:'جديد',blog9p:'رامي جديد.',blog10h:'قريباً',blog10p:'قادم قريباً.',blog11h:'رامي',blog11p:'حتى 100.',blog12h:'مرحباً',blog12p:'مدونة جديدة.',footerText:'© 2026 نرد الألوان',footerContact:'تواصل',unlocked:'✅ تم الفتح',rollsLeft:'رميات متبقية',historyTitle:'السجل',historyEmpty:'ارمِ النرد!'}
+            };
+
+            function detectLang() {
+                const u = new URLSearchParams(window.location.search).get('lang');
+                if (u && TRANSLATIONS[u]) return u;
+                const s = localStorage.getItem('colorDiceLang');
+                if (s && TRANSLATIONS[s]) return s;
+                const b = (navigator.language || 'en').toLowerCase().split('-')[0];
+                return TRANSLATIONS[b] ? b : 'en';
+            }
+
+            function setLang(lang) {
+                if (!TRANSLATIONS[lang]) lang = 'en';
+                currentLang = lang;
+                localStorage.setItem('colorDiceLang', lang);
+                const T = TRANSLATIONS[lang];
+
+                const ids = {mainH1:'h1',rollBtn:'rollBtn',themeLabel:'themeLabel',diceLabel:'diceLabel',onlineText:'online',joinDiscordEl:'joinDiscord',colorsIntroText:'colorsIntro',colorRed:'cRed',colorOrange:'cOrange',colorYellow:'cYellow',colorGreen:'cGreen',colorBlue:'cBlue',colorAndWord:'andWord',colorPurple:'cPurple',sec1h:'sec1h',sec2h:'sec2h',sec3h:'sec3h',faqTitle:'faqTitle',blogTitleEl:'blogTitle',footerText:'footerText',footerContact:'footerContact',historyTitle:'historyTitle'};
+                Object.entries(ids).forEach(([id, key]) => {
+                    const el = document.getElementById(id);
+                    if (el && T[key]) el.textContent = T[key];
+                });
+                const htmlIds = {sec1p:'sec1p',sec2p:'sec2p',sec3p:'sec3p'};
+                Object.entries(htmlIds).forEach(([id, key]) => {
+                    const el = document.getElementById(id);
+                    if (el && T[key]) el.innerHTML = T[key];
+                });
+                for (let i = 1; i <= 6; i++) {
+                    const q = document.getElementById('faq'+i+'q'); if (q && T['faq'+i+'q']) q.textContent = T['faq'+i+'q'];
+                    const a = document.getElementById('faq'+i+'a'); if (a && T['faq'+i+'a']) a.innerHTML = T['faq'+i+'a'];
+                }
+                for (let i = 1; i <= 12; i++) {
+                    const h = document.getElementById('blog'+i+'h'); if (h && T['blog'+i+'h']) h.textContent = T['blog'+i+'h'];
+                    const p = document.getElementById('blog'+i+'p'); if (p && T['blog'+i+'p']) p.innerHTML = T['blog'+i+'p'];
+                }
+                renderHistory();
+                buildDiceOptions();
+                document.querySelectorAll('.lang-btn').forEach(b => {
+                    b.classList.toggle('active', b.getAttribute('onclick').includes("'"+lang+"'"));
+                });
+                document.body.style.direction = (lang === 'ar') ? 'rtl' : 'ltr';
+            }
+
+            document.addEventListener('DOMContentLoaded', () => { setLang(detectLang()); });
+        </script>
+    </body>
+</html>
